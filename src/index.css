@@ -1,0 +1,188 @@
+@import "tailwindcss";
+
+@theme {
+  --color-gold-50: #fdf8ed;
+  --color-gold-100: #f9edcc;
+  --color-gold-200: #f2d994;
+  --color-gold-300: #ebc35c;
+  --color-gold-400: #e5ae35;
+  --color-gold-500: #d4931d;
+  --color-gold-600: #b87316;
+  --color-gold-700: #995415;
+  --color-gold-800: #7d4318;
+  --color-gold-900: #68381a;
+
+  --color-parchment-50: #faf8f3;
+  --color-parchment-100: #f4f0e5;
+  --color-parchment-200: #e8dfca;
+  --color-parchment-300: #d9c9a8;
+  --color-parchment-400: #c8ae84;
+  --color-parchment-500: #bb9968;
+  --color-parchment-600: #ae855c;
+  --color-parchment-700: #916c4d;
+  --color-parchment-800: #775943;
+  --color-parchment-900: #624a39;
+
+  --color-ink-50: #f6f5f3;
+  --color-ink-100: #e7e4de;
+  --color-ink-200: #d0c9be;
+  --color-ink-300: #b4a999;
+  --color-ink-400: #9f9180;
+  --color-ink-500: #8a7d6d;
+  --color-ink-600: #766a5d;
+  --color-ink-700: #60564d;
+  --color-ink-800: #514943;
+  --color-ink-900: #473f3b;
+  --color-ink-950: #1e1b17;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #c8ae84 transparent;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Noto Naskh Arabic', 'Amiri', serif;
+  background-color: #faf8f3;
+  color: #1e1b17;
+  direction: rtl;
+}
+
+::selection {
+  background-color: #e5ae35;
+  color: #1e1b17;
+}
+
+.font-amiri {
+  font-family: 'Amiri', serif;
+}
+
+.font-tajawal {
+  font-family: 'Tajawal', sans-serif;
+}
+
+.article-body p {
+  text-indent: 2rem;
+  margin-bottom: 1.5rem;
+  line-height: 2.2;
+  font-size: 1.15rem;
+}
+
+.article-body p:first-child {
+  text-indent: 0;
+}
+
+.article-body p:first-child::first-line {
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .article-body p {
+    font-size: 1.05rem;
+    line-height: 2;
+    text-indent: 1.5rem;
+  }
+}
+
+.ornament {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 20'%3E%3Cpath d='M0 10 Q25 0 50 10 Q75 20 100 10 Q125 0 150 10 Q175 20 200 10' fill='none' stroke='%23c8ae84' stroke-width='1.5'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 200px 20px;
+  height: 20px;
+}
+
+.geometric-border {
+  background-image: 
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 8px,
+      #c8ae84 8px,
+      #c8ae84 9px,
+      transparent 9px,
+      transparent 17px
+    );
+  height: 1px;
+}
+
+.toc-link {
+  transition: all 0.3s ease;
+  border-right: 3px solid transparent;
+  padding-right: 12px;
+}
+
+.toc-link:hover {
+  border-right-color: #d4931d;
+  color: #d4931d;
+  background-color: rgba(212, 147, 29, 0.05);
+}
+
+.toc-link.active {
+  border-right-color: #d4931d;
+  color: #d4931d;
+  font-weight: 600;
+}
+
+.chapter-heading {
+  position: relative;
+}
+
+.chapter-heading::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, #d4931d, #e5ae35, transparent);
+  margin-top: 12px;
+}
+
+.fade-in {
+  animation: fadeIn 0.8s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hero-pattern {
+  background-color: #1e1b17;
+  background-image: 
+    radial-gradient(ellipse at 20% 50%, rgba(212, 147, 29, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 50%, rgba(184, 115, 22, 0.06) 0%, transparent 50%),
+    url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c8ae84' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+.ref-item {
+  padding: 0.75rem 1rem;
+  border-right: 3px solid #e8dfca;
+  transition: border-color 0.3s;
+}
+
+.ref-item:hover {
+  border-right-color: #d4931d;
+}
+
+.progress-bar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #d4931d, #e5ae35);
+  z-index: 100;
+  transition: width 0.1s linear;
+}
+
+.timeline-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: #d4931d;
+  border: 3px solid #faf8f3;
+  box-shadow: 0 0 0 2px #d4931d;
+}
